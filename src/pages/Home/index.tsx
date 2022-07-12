@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
-import Axios from "axios";
+import { HeaderComponent } from '../../components/common'
 
-import './styles.css'
+import "./styles.css";
 
 const HomePage = () => {
   return (
     <div className="container-home">
+      <HeaderComponent />
+
+      <div className="content-cards-home"></div>
     </div>
   );
 };

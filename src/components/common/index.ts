@@ -1,5 +1,5 @@
-import Header from './Header'
+import HeaderComponent from './Header'
 
 export {
-    Header
+    HeaderComponent
 }

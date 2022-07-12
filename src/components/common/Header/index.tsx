@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { FC } from 'react'
 
-const Header = () => {
+import './styles.css'
+
+const HeaderComponent: FC = () => {
 
     return (
-        <div></div>
+        <div className="container-header">
+            <h1>NewRoots</h1>
+        </div>
     )
 }
 
-export default Header
+export default HeaderComponent

@@ -1,3 +1,14 @@
 .container-home {
+    height: 100%;
+    width: 100%;
+}
+
+.texte
+
+.content-cards-home {
+    height: 100%;
+    width: 100%;
     background-image: url('https://www.bing.com//th?id=OHR.SpiralHill_PT-BR3566517069_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
