@@ -1,9 +1,11 @@
 import React, { FC } from 'react'
 
+import './styles.css'
+
 const CardListMembers: FC = () => {
 
     return (
-        <div></div>
+        <div className="container-card-list-members"></div>
     )
 }
 
