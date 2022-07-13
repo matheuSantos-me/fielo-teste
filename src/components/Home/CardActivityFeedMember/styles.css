@@ -1,5 +1,7 @@
 .container-card-activity-feed-member {
-    height: 300px;
-    width: 200px;
+    height: 386px;
+    width: 300px;
     background: #FFF;
+    border-radius: 8px;
+    padding: 8px;
 }

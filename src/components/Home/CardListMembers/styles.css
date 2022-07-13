@@ -1,5 +1,56 @@
 .container-card-list-members {
-    height: 300px;
-    width: 200px;
-    background: #FFF;
+  height: 386px;
+  width: 300px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.content-labels {
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 17px;
+  color: #8A94A6;
+}
+
+.container-list-member {
+  height: 95%;
+  overflow-y: auto;
+}
+
+.container-profile {
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.content-profile {
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text-member {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 17px;
+  color: #16325c;
+}
+
+.picture-profile {
+  height: 24px;
+  width: 24px;
+  border-radius: 50px;
+  object-fit: cover;
+  margin: 0 8px 0 12px
 }
