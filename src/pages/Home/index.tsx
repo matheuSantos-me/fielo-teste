@@ -1,15 +1,15 @@
 import { FC, useState, useEffect } from "react";
 
-import HTTPClient from "../../config/request";
+import HTTPClient from "@config/request";
 
-import { HeaderComponent } from "../../components/common";
+import { HeaderComponent } from "@components/common";
 import {
   CardListMembers,
   CardProfileMember,
   CardActivityFeedMember,
-} from "../../components/Home";
+} from "@components/Home";
 
-import { IListMembersProps } from "../../interfaces/IListMembersProps";
+import { IListMembersProps } from "@interfaces/IListMembersProps";
 
 import "./styles.css";
 

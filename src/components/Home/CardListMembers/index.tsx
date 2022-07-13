@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { IListMembersProps } from "../../../interfaces/IListMembersProps";
+import { IListMembersProps } from "@interfaces/IListMembersProps";
 
 import "./styles.css";
 
