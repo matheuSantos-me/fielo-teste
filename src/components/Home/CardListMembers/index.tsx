@@ -2,11 +2,22 @@ import React, { FC } from "react";
 
 import "./styles.css";
 
+interface IListMembersProps {
+    balance: {
+      currency: number;
+      miles: number;
+      points: number;
+    };
+    id: string;
+    image: string;
+    name: string;
+  }
 interface ICardListMembersProps {
-  listMembers?: any;
+  listMembers: Array<IListMembersProps> | undefined
+  actionsSelectMember?: () => void
 }
 
-const CardListMembers: FC<ICardListMembersProps> = ({ listMembers }) => {
+const CardListMembers: FC<ICardListMembersProps> = ({ listMembers, actionsSelectMember }) => {
   return (
     <div className="container-card-list-members">
       <div className="content-labels">
@@ -21,22 +32,22 @@ const CardListMembers: FC<ICardListMembersProps> = ({ listMembers }) => {
       </div>
 
       <div className="container-list-member">
-        {listMembers.map((item: any) => (
-          <div className="container-profile">
+        {listMembers?.map((member: IListMembersProps, index: number) => (
+          <div className="container-profile" key={index} onClick={actionsSelectMember}>
             <div className="content-profile">
               <p style={{ margin: "0 6px" }} className="text-member">
-                1
+                {index + 1}
               </p>
 
               <img
-                src="https://www.bing.com//th?id=OHR.SpiralHill_PT-BR3566517069_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp"
+                src={member.image}
                 className="picture-profile"
               />
 
-              <p className="text-member">Cameron Williamson</p>
+              <p className="text-member">{member.name}</p>
             </div>
 
-            <p style={{ margin: '0 16px 0 0' }} className="text-member">20</p>
+            <p style={{ margin: '0 16px 0 0' }} className="text-member">{member.balance.points}</p>
           </div>
         ))}
       </div>

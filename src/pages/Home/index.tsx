@@ -1,4 +1,7 @@
-import React, { useEffect } from "react";
+import { FC, useState, useEffect } from "react";
+
+import HTTPClient from "../../config/request";
+
 import { HeaderComponent } from "../../components/common";
 import {
   CardListMembers,
@@ -8,14 +11,40 @@ import {
 
 import "./styles.css";
 
-const HomePage = () => {
+interface IListMembersProps {
+  balance: {
+    currency: number;
+    miles: number;
+    points: number;
+  };
+  id: string;
+  image: any;
+  name: string;
+}
+
+const HomePage: FC = () => {
+  const [listMembers, setListMembers] = useState<IListMembersProps[]>();
+
+  const getListMembers = async () => {
+    try {
+      const { data } = await HTTPClient.get("/users");
+      setListMembers(data);
+    } catch (e) {
+      console.log(e, "error de list");
+    }
+  };
+
+  useEffect(() => {
+    getListMembers();
+  }, []);
+
   return (
     <div className="container-home">
       <HeaderComponent />
 
       <div className="container-cards-home">
         <div className="content-cards-home">
-          <CardListMembers listMembers={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]} />
+          <CardListMembers listMembers={listMembers} />
 
           <CardProfileMember />
 
