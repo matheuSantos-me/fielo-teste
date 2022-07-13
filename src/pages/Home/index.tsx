@@ -9,18 +9,9 @@ import {
   CardActivityFeedMember,
 } from "../../components/Home";
 
-import "./styles.css";
+import { IListMembersProps } from "../../interfaces/IListMembersProps";
 
-interface IListMembersProps {
-  balance: {
-    currency: number;
-    miles: number;
-    points: number;
-  };
-  id: string;
-  image: any;
-  name: string;
-}
+import "./styles.css";
 
 const HomePage: FC = () => {
   const [listMembers, setListMembers] = useState<IListMembersProps[]>();

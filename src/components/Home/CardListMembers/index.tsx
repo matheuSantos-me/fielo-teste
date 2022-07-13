@@ -1,17 +1,9 @@
-import React, { FC } from "react";
+import { FC } from "react";
+
+import { IListMembersProps } from "../../../interfaces/IListMembersProps";
 
 import "./styles.css";
 
-interface IListMembersProps {
-    balance: {
-      currency: number;
-      miles: number;
-      points: number;
-    };
-    id: string;
-    image: string;
-    name: string;
-  }
 interface ICardListMembersProps {
   listMembers: Array<IListMembersProps> | undefined
   actionsSelectMember?: () => void
