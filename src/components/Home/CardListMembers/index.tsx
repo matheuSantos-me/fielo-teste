@@ -5,11 +5,14 @@ import { IListMembersProps } from "@interfaces/IListMembersProps";
 import "./styles.css";
 
 interface ICardListMembersProps {
-  listMembers: Array<IListMembersProps> | undefined
-  actionsSelectMember?: () => void
+  listMembers: Array<IListMembersProps> | undefined;
+  actionsSelectMember?: () => void;
 }
 
-const CardListMembers: FC<ICardListMembersProps> = ({ listMembers, actionsSelectMember }) => {
+const CardListMembers: FC<ICardListMembersProps> = ({
+  listMembers,
+  actionsSelectMember,
+}) => {
   return (
     <div className="container-card-list-members">
       <div className="content-labels">
@@ -20,26 +23,37 @@ const CardListMembers: FC<ICardListMembersProps> = ({ listMembers, actionsSelect
           <p className="label">Member</p>
         </div>
 
-        <p style={{ margin: '0 6px 0 0'}} className="label">Points</p>
+        <p style={{ margin: "0 6px 0 0" }} className="label">
+          Points
+        </p>
       </div>
 
       <div className="container-list-member">
         {listMembers?.map((member: IListMembersProps, index: number) => (
-          <div className="container-profile" key={index} onClick={actionsSelectMember}>
+          <div
+            className="container-profile"
+            key={index}
+            onClick={actionsSelectMember}
+          >
             <div className="content-profile">
               <p style={{ margin: "0 6px" }} className="text-member">
                 {index + 1}
               </p>
 
-              <img
-                src={member.image}
-                className="picture-profile"
-              />
+              {member.image ? (
+                <img src={member.image} className="picture-profile" />
+              ) : (
+                <div className="avatar-profile">
+                  <p className="text-avatar-profile">{member.name.slice(0, 1)}</p>
+                </div>
+              )}
 
               <p className="text-member">{member.name}</p>
             </div>
 
-            <p style={{ margin: '0 16px 0 0' }} className="text-member">{member.balance.points}</p>
+            <p style={{ margin: "0 16px 0 0" }} className="text-member">
+              {member.balance.points}
+            </p>
           </div>
         ))}
       </div>

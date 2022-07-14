@@ -19,6 +19,7 @@ const HomePage: FC = () => {
   const getListMembers = async () => {
     try {
       const { data } = await HTTPClient.get("/users");
+      console.log(data, 'datas')
       setListMembers(data);
     } catch (e) {
       console.log(e, "error de list");
