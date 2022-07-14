@@ -1,12 +1,38 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-import './styles.css'
+import "./styles.css";
 
 const CardProfileMember: FC = () => {
+  return (
+    <div className="container-card-profile-member">
+      <img />
 
-    return (
-        <div className="container-card-profile-member"></div>
-    )
-}
+      <div className="divider" />
 
-export default CardProfileMember
+      <div>
+        <div>
+          <div>
+            <span>$1540</span>
+          </div>
+          <p>Points</p>
+        </div>
+
+        <div>
+          <span>10540</span>
+          <p>Miles</p>
+        </div>
+
+        <div>
+          <div>
+            <span>1540</span>
+          </div>
+          <p>Currency</p>
+        </div>
+      </div>
+
+      <div className="divider" />
+    </div>
+  );
+};
+
+export default CardProfileMember;

@@ -9,13 +9,13 @@ import {
   CardActivityFeedMember,
 } from "@components/Home";
 
-import { IListMembersProps } from "@interfaces/IListMembersProps";
+import { IMemberProps } from "@interfaces/IMemberProps";
 
 import "./styles.css";
 
 const HomePage: FC = () => {
-  const [listMembers, setListMembers] = useState<IListMembersProps[]>();
-  const [memberActive, setMemberActive] = useState<IListMembersProps>();
+  const [listMembers, setListMembers] = useState<IMemberProps[]>();
+  const [memberActive, setMemberActive] = useState<IMemberProps>();
 
   const getListMembers = async () => {
     try {
@@ -42,9 +42,9 @@ const HomePage: FC = () => {
             active={memberActive?.id}
           />
 
-          {/* <CardProfileMember />
+          <CardProfileMember />
 
-          <CardActivityFeedMember /> */}
+          {/* <CardActivityFeedMember /> */}
         </div>
       </div>
     </div>

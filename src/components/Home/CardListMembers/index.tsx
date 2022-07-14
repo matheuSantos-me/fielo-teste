@@ -1,12 +1,12 @@
 import { FC } from "react";
 
-import { IListMembersProps } from "@interfaces/IListMembersProps";
+import { IMemberProps } from "@interfaces/IMemberProps";
 
 import "./styles.css";
 
 interface ICardListMembersProps {
-  listMembers: Array<IListMembersProps> | undefined;
-  actionsSelectMember: (member: IListMembersProps) => void;
+  listMembers: Array<IMemberProps> | undefined;
+  actionsSelectMember: (member: IMemberProps) => void;
   active?: string;
 }
 
@@ -31,7 +31,7 @@ const CardListMembers: FC<ICardListMembersProps> = ({
       </div>
 
       <div className="container-list-member">
-        {listMembers?.map((member: IListMembersProps, index: number) => (
+        {listMembers?.map((member: IMemberProps, index: number) => (
           <div
             className={
               active === member.id

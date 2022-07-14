@@ -1,4 +1,4 @@
-export interface IListMembersProps {
+export interface IMemberProps {
   balance: {
     currency: number;
     miles: number;
