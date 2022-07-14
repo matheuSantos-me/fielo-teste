@@ -6,12 +6,14 @@ import "./styles.css";
 
 interface ICardListMembersProps {
   listMembers: Array<IListMembersProps> | undefined;
-  actionsSelectMember?: () => void;
+  actionsSelectMember: (member: IListMembersProps) => void;
+  active?: string;
 }
 
 const CardListMembers: FC<ICardListMembersProps> = ({
   listMembers,
   actionsSelectMember,
+  active,
 }) => {
   return (
     <div className="container-card-list-members">
@@ -31,9 +33,13 @@ const CardListMembers: FC<ICardListMembersProps> = ({
       <div className="container-list-member">
         {listMembers?.map((member: IListMembersProps, index: number) => (
           <div
-            className="container-profile"
+            className={
+              active === member.id
+                ? "container-profile-active"
+                : "container-profile"
+            }
             key={index}
-            onClick={actionsSelectMember}
+            onClick={() => actionsSelectMember(member)}
           >
             <div className="content-profile">
               <p style={{ margin: "0 6px" }} className="text-member">
@@ -44,14 +50,16 @@ const CardListMembers: FC<ICardListMembersProps> = ({
                 <img src={member.image} className="picture-profile" />
               ) : (
                 <div className="avatar-profile">
-                  <p className="text-avatar-profile">{member.name.slice(0, 1)}</p>
+                  <p className="text-avatar-profile">
+                    {member.name.slice(0, 1)}
+                  </p>
                 </div>
               )}
 
-              <p className="text-member">{member.name}</p>
+                <p className="text-member">{member.name}</p>
             </div>
 
-            <p style={{ margin: "0 16px 0 0" }} className="text-member">
+            <p style={{ margin: "0 16px 0 0", width: '9%' }} className="text-member">
               {member.balance.points}
             </p>
           </div>

@@ -15,11 +15,11 @@ import "./styles.css";
 
 const HomePage: FC = () => {
   const [listMembers, setListMembers] = useState<IListMembersProps[]>();
+  const [memberActive, setMemberActive] = useState<IListMembersProps>();
 
   const getListMembers = async () => {
     try {
       const { data } = await HTTPClient.get("/users");
-      console.log(data, 'datas')
       setListMembers(data);
     } catch (e) {
       console.log(e, "error de list");
@@ -36,11 +36,15 @@ const HomePage: FC = () => {
 
       <div className="container-cards-home">
         <div className="content-cards-home">
-          <CardListMembers listMembers={listMembers} />
+          <CardListMembers
+            listMembers={listMembers}
+            actionsSelectMember={(member) => setMemberActive(member)}
+            active={memberActive?.id}
+          />
 
-          <CardProfileMember />
+          {/* <CardProfileMember />
 
-          <CardActivityFeedMember />
+          <CardActivityFeedMember /> */}
         </div>
       </div>
     </div>
