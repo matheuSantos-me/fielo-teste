@@ -1,7 +1,62 @@
 .container-card-profile-member {
-    height: 386px;
-    width: 300px;
-    background: #FFF;
-    border-radius: 8px;
-    padding: 8px;
+  height: 386px;
+  width: 300px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.content-card-profile-member {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  height: 60px;
+  width: 60px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background-color: #d7dbe7;
+  margin: 24px 0;
+}
+
+.container-values {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-value {
+  font-weight: 700;
+  font-size: 13px;
+  align-items: center;
+  color: #8a94a6;
+  margin: 0 2px 0 0;
+}
+
+.text-value {
+  font-weight: 700;
+  font-size: 16px;
+  color: #16325c;
+}
+
+.label-value {
+  font-weight: 600;
+  font-size: 12px;
+  color: #8a94a6;
+  margin-top: 2px;
 }

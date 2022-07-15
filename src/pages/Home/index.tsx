@@ -15,7 +15,8 @@ import "./styles.css";
 
 const HomePage: FC = () => {
   const [listMembers, setListMembers] = useState<IMemberProps[]>();
-  const [memberActive, setMemberActive] = useState<IMemberProps>();
+  const [memberActive, setMemberActive] = useState<IMemberProps | null>();
+  const [cardsDetailsMember, setCardsDetailsMember] = useState<boolean>(true);
 
   const getListMembers = async () => {
     try {
@@ -30,6 +31,16 @@ const HomePage: FC = () => {
     getListMembers();
   }, []);
 
+  const handleSelectMember = (member: IMemberProps) => {
+    if (memberActive && member === memberActive) {
+      setMemberActive(null);
+      setCardsDetailsMember(false);
+    } else {
+      setMemberActive(member);
+      setCardsDetailsMember(true);
+    }
+  };
+
   return (
     <div className="container-home">
       <HeaderComponent />
@@ -38,13 +49,13 @@ const HomePage: FC = () => {
         <div className="content-cards-home">
           <CardListMembers
             listMembers={listMembers}
-            actionsSelectMember={(member) => setMemberActive(member)}
+            actionsSelectMember={(member) => handleSelectMember(member)}
             active={memberActive?.id}
           />
 
-          <CardProfileMember />
+          {cardsDetailsMember && <CardProfileMember />}
 
-          {/* <CardActivityFeedMember /> */}
+          {cardsDetailsMember && <CardActivityFeedMember />}
         </div>
       </div>
     </div>
