@@ -18,6 +18,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-###
-Não tive tempo de chegar nos testes
-Não consegui usar a API do Bing porr motivos de error de CORS que estou trabalhando para resolver
+### ERRORS
+
+Not active time to arrive in tests
+
+I couldn't use the Bing API due to a CORS error that I'm working on resolving
