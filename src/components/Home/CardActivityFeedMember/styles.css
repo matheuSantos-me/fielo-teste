@@ -1,7 +1,55 @@
 .container-card-activity-feed-member {
-    height: 386px;
-    width: 300px;
-    background: #FFF;
-    border-radius: 8px;
-    padding: 8px;
+  height: 386px;
+  width: 300px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px 0 12px 12px;
+}
+
+.content-header {
+  height: auto;
+}
+
+.title-feed {
+  font-weight: 600;
+  font-size: 16px;
+  color: #16325c;
+}
+
+.description-feed {
+  font-weight: 600;
+  font-size: 13px;
+  color: #8a94a6;
+  margin: 5px 0 24px 0;
+}
+
+.container-list-activities {
+  height: 83%;
+  overflow-y: auto;
+}
+
+.container-activity {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 12px 0 0;
+}
+
+.date-activity {
+  font-weight: 600;
+  font-size: 12px;
+  color: #8a94a6;
+}
+
+.description-activity {
+  margin: 5px 0 0 0;
+  font-weight: 400;
+  font-size: 13px;
+  color: #16325c;
+}
+
+.divider-feed {
+  height: 1px;
+  background-color: #d7dbe7;
+  margin: 12px;
 }

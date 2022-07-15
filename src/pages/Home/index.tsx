@@ -12,11 +12,13 @@ import {
 import { IMemberProps } from "@interfaces/IMemberProps";
 import { IMemberProgramsProps } from "@interfaces/IMemberProgramsProps";
 import { ILevelMemberProps } from "@interfaces/ILevelMemberProps";
+import { IActivityProps } from "@interfaces/IActivityProps";
 
 import "./styles.css";
 
 const HomePage: FC = () => {
   const [listMembers, setListMembers] = useState<IMemberProps[]>();
+  const [listActivitiesMember, setListActivitiesMember] = useState<IActivityProps[]>();
   const [memberActive, setMemberActive] = useState<IMemberProps | null>();
   const [memberPrograms, setMemberPrograms] = useState<IMemberProgramsProps>();
   const [levelMember, setLevelMember] = useState<ILevelMemberProps>();
@@ -83,6 +85,16 @@ const HomePage: FC = () => {
       console.log(e);
     }
   };
+
+  const getActivitiesMemberByID = async (id: string) => {
+    try {
+      const { data } = await HTTPClient.get(`/users/${id}/activities`);
+      console.log(data, 'activities')
+      setListActivitiesMember(data)
+    } catch (e) {
+      console.log(e);
+    }
+  };
   
 
   const handleSelectMember = (member: IMemberProps) => {
@@ -91,6 +103,7 @@ const HomePage: FC = () => {
       setCardsDetailsMember(false);
     } else {
       getMemberByID(member.id);
+      getActivitiesMemberByID(member.id);
     }
   };
 
@@ -115,7 +128,7 @@ const HomePage: FC = () => {
             />
           )}
 
-          {cardsDetailsMember && <CardActivityFeedMember />}
+          {cardsDetailsMember && <CardActivityFeedMember listActivitiesMember={listActivitiesMember} />}
         </div>
       </div>
     </div>
