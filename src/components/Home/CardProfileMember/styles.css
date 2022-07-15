@@ -3,7 +3,7 @@
   width: 300px;
   background: #fff;
   border-radius: 8px;
-  padding: 8px;
+  padding: 12px;
 }
 
 .content-card-profile-member {
@@ -18,6 +18,35 @@
   width: 60px;
   border-radius: 50px;
   object-fit: cover;
+}
+
+.avatar-text {
+  height: 60px;
+  width: 60px;
+  background-color: #eeeeee;
+  border-radius: 50px;
+  margin: 0 8px 0 12px;
+}
+
+.text-avatar-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.name-member {
+  font-weight: 700;
+  font-size: 16px;
+  color: #16325c;
+  margin-top: 5px;
+}
+
+.text-type-program {
+  font-weight: 600;
+  font-size: 12px;
+  color: #8a94a6;
+  margin-top: 5px;
 }
 
 .divider {
@@ -59,4 +88,72 @@
   font-size: 12px;
   color: #8a94a6;
   margin-top: 2px;
+}
+
+.container-level {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-lavel {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.title-level {
+  font-weight: 600;
+  font-size: 16px;
+  color: #16325c;
+}
+
+.text-next-level {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: #b5bac8;
+}
+
+.content-steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.border-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 16px;
+  width: 16px;
+  border-radius: 50px;
+  border: 2px solid #B5BAC8;
+}
+
+.border-step-active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 16px;
+  width: 16px;
+  border-radius: 50px;
+  border: 2px solid #1C8EFF;
+}
+
+.step-active {
+  height: 8px;
+  width: 8px;
+  border-radius: 50px;
+  background-color: #1C8EFF;
+}
+
+.divider-step {
+  height: 2px;
+  width: 20%;
+  background-color: #B5BAC8;
+  border-radius: 50px;
+  margin: 0 4px;
 }

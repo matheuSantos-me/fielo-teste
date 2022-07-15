@@ -10,20 +10,26 @@ import {
 } from "@components/Home";
 
 import { IMemberProps } from "@interfaces/IMemberProps";
+import { IMemberProgramsProps } from "@interfaces/IMemberProgramsProps";
+import { ILevelMemberProps } from "@interfaces/ILevelMemberProps";
 
 import "./styles.css";
 
 const HomePage: FC = () => {
   const [listMembers, setListMembers] = useState<IMemberProps[]>();
   const [memberActive, setMemberActive] = useState<IMemberProps | null>();
-  const [cardsDetailsMember, setCardsDetailsMember] = useState<boolean>(true);
+  const [memberPrograms, setMemberPrograms] = useState<IMemberProgramsProps>();
+  const [levelMember, setLevelMember] = useState<ILevelMemberProps>();
+  const [nextLevel, setNextLevel] = useState<ILevelMemberProps>();
+  const [cardsDetailsMember, setCardsDetailsMember] = useState<boolean>(false);
 
   const getListMembers = async () => {
     try {
       const { data } = await HTTPClient.get("/users");
       setListMembers(data);
+
     } catch (e) {
-      console.log(e, "error de list");
+      console.log(e);
     }
   };
 
@@ -31,13 +37,60 @@ const HomePage: FC = () => {
     getListMembers();
   }, []);
 
+  const getMemberByID = async (id: string) => {
+    try {
+      const { data } = await HTTPClient.get(`/users/${id}`);
+      setMemberActive(data);
+      getProgramsMemberByProgramID(data.programId);
+      getLevelMemberByID(data.levelId);
+
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getProgramsMemberByProgramID = async (programId: string) => {
+    try {
+      const { data } = await HTTPClient.get(`/programs/${programId}`);
+      setMemberPrograms(data);
+
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  
+  const getLevelMemberByID = async (levelId: string) => {
+    try {
+      const { data } = await HTTPClient.get(`/levels/${levelId}`);
+      getProgramsMemberByID(data, data.programId);
+      
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  
+  const getProgramsMemberByID = async (dataLevelMember: ILevelMemberProps, id: string) => {
+    try {
+      const { data } = await HTTPClient.get(`/programs/${id}/levels`);
+      if (dataLevelMember) {
+        setLevelMember(dataLevelMember)
+        const dataNextLevel = data.filter((item: any) => item.order > dataLevelMember.order)
+        setNextLevel(dataNextLevel[0])
+        setCardsDetailsMember(true);
+      }
+
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  
+
   const handleSelectMember = (member: IMemberProps) => {
-    if (memberActive && member === memberActive) {
+    if (memberActive && member.id === memberActive.id) {
       setMemberActive(null);
       setCardsDetailsMember(false);
     } else {
-      setMemberActive(member);
-      setCardsDetailsMember(true);
+      getMemberByID(member.id);
     }
   };
 
@@ -53,7 +106,14 @@ const HomePage: FC = () => {
             active={memberActive?.id}
           />
 
-          {cardsDetailsMember && <CardProfileMember />}
+          {cardsDetailsMember && (
+            <CardProfileMember
+              memberActive={memberActive}
+              memberPrograms={memberPrograms}
+              levelMember={levelMember}
+              nextLevel={nextLevel}
+            />
+          )}
 
           {cardsDetailsMember && <CardActivityFeedMember />}
         </div>
