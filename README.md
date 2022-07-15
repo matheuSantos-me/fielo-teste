@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+>The whole project was configured on node version 14.x.x, we suggest you use the same
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+>The whole project was configured on node version 14.x.x, we suggest you use the same [Link Disabled CORS](https://alfilatov.com/posts/run-chrome-without-cors)
 
 ## Available Scripts
 
@@ -21,5 +21,3 @@ You will also see any lint errors in the console.
 ### ERRORS
 
 Not active time to arrive in tests
-
-I couldn't use the Bing API due to a CORS error that I'm working on resolving
